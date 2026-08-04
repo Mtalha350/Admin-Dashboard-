@@ -1,6 +1,7 @@
 import DashboardLayout from './layouts/DashboardLayout';
 import StatsGrid from './components/cards/StatsGrid';
 import RevenueChart from './components/chart/RevenueChart';
+import InvoiceTable from './components/table/InvoiceTable';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
 
         <StatsGrid />
         <RevenueChart />
+        <InvoiceTable />
       </div>
     </DashboardLayout>
   );
