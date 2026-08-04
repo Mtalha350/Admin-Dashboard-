@@ -1,11 +1,15 @@
 import { useMemo, useState } from 'react';
 
-import { invoices } from '../../data/invoices';
+import type { Invoice } from '../../types/invoice';
 
-import TableToolbar from './TableToolbar';
 import TableRow from './TableRow';
+import TableToolbar from './TableToolbar';
 
-export default function InvoiceTable() {
+type Props = {
+  invoices: Invoice[];
+};
+
+export default function InvoiceTable({ invoices }: Props) {
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('All statuses');
   const [plan, setPlan] = useState('All plans');
@@ -24,7 +28,7 @@ export default function InvoiceTable() {
 
       return matchesSearch && matchesStatus && matchesPlan;
     });
-  }, [search, status, plan]);
+  }, [invoices, search, status, plan]); // ✅ Added invoices
 
   return (
     <section className='mt-8 overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm'>
@@ -39,30 +43,47 @@ export default function InvoiceTable() {
       />
 
       <div className='h-[430px] overflow-y-auto'>
-        <table className='w-full table-fixed'>
-          <thead className='sticky top-0 z-10 bg-white text-[#5B6D6D]'>
+        <table className='w-full table-fixed border-collapse'>
+          <thead className='sticky top-0 z-20 bg-white shadow-[0_1px_0_0_#E2E8F0]'>
             <tr>
-              <th className='w-[14%] px-5 py-3 text-left font-medium'>
+              <th className='w-[14%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
                 Invoice
               </th>
-              <th className='w-[33%] px-5 py-3 text-left font-medium'>
+
+              <th className='w-[33%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
                 Customer
               </th>
-              <th className='w-[12%] px-5 py-3 text-left font-medium'>Plan</th>
-              <th className='w-[18%] px-5 py-3 text-left font-medium'>
+
+              <th className='w-[12%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                Plan
+              </th>
+
+              <th className='w-[18%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
                 Status
               </th>
-              <th className='w-[13%] px-5 py-3 text-left font-medium'>Date</th>
-              <th className='w-[10%] px-5 py-3 text-right font-medium'>
+
+              <th className='w-[13%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                Date
+              </th>
+
+              <th className='w-[10%] px-5 py-4 text-right text-sm font-medium text-[#5B6D6D]'>
                 Amount
               </th>
             </tr>
           </thead>
 
           <tbody>
-            {filteredInvoices.map((invoice) => (
-              <TableRow key={invoice.id} invoice={invoice} />
-            ))}
+            {filteredInvoices.length === 0 ? (
+              <tr>
+                <td colSpan={6} className='py-20 text-center text-slate-500'>
+                  No invoices found.
+                </td>
+              </tr>
+            ) : (
+              filteredInvoices.map((invoice) => (
+                <TableRow key={invoice.id} invoice={invoice} />
+              ))
+            )}
           </tbody>
         </table>
       </div>
