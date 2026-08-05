@@ -1,109 +1,18 @@
-import { useEffect, useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import DashboardLayout from './layouts/DashboardLayout';
+import DashboardPage from './pages/DashboardPage';
+import InvoicesPage from './pages/InvoicesPage';
+import NotFoundPage from './pages/NotFoundPage';
 
-import StatsGrid from './components/cards/StatsGrid';
-import StatsGridSkeleton from './components/cards/StatsGridSkeleton';
-
-import RevenueChart from './components/chart/RevenueChart';
-import RevenueChartSkeleton from './components/chart/RevenueChartSkeleton';
-
-import InvoiceTable from './components/table/InvoiceTable';
-import InvoiceTableSkeleton from './components/table/InvoiceTableSkeleton';
-
-import CreateInvoiceModal from './components/modal/CreateInvoiceModal';
-
-import ToastContainer from './components/common/ToastContainer';
-
-import { invoices as initialInvoices } from './data/invoices';
-
-import type { Invoice } from './types/invoice';
-import type { InvoiceFormValues } from './schemas/invoiceSchema';
-
-function App() {
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [invoices, setInvoices] = useState<Invoice[]>(initialInvoices);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleCreateInvoice = (data: InvoiceFormValues) => {
-    const latestInvoiceNumber = Math.max(
-      ...invoices.map((invoice) => Number(invoice.id.replace('INV-', ''))),
-    );
-
-    const newInvoice: Invoice = {
-      id: `INV-${latestInvoiceNumber + 1}`,
-      customer: data.customer,
-      email: data.email,
-      plan: data.plan,
-      status: data.status,
-      amount: data.amount,
-      date: new Date().toISOString().slice(0, 10),
-    };
-
-    setInvoices((prev) => [newInvoice, ...prev]);
-    setOpen(false);
-    setShowSuccess(true);
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 3000);
-  };
-
+export default function App() {
   return (
-    <>
-      <DashboardLayout>
-        <div>
-          <div className='flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
-            <div>
-              <h1 className='text-3xl font-medium text-slate-900'>Overview</h1>
-
-              <p className='text-sm text-slate-500'>
-                Revenue, accounts and invoice activity for the last 30 days.
-              </p>
-            </div>
-
-            <button
-              type='button'
-              onClick={() => setOpen(true)}
-              className='shrink-0 rounded-xl bg-teal-700 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-800'
-            >
-              + New Invoice
-            </button>
-          </div>
-
-          {loading ? (
-            <>
-              <StatsGridSkeleton />
-              <RevenueChartSkeleton />
-              <InvoiceTableSkeleton />
-            </>
-          ) : (
-            <>
-              <StatsGrid />
-              <RevenueChart />
-              <InvoiceTable invoices={invoices} />
-            </>
-          )}
-
-          <CreateInvoiceModal
-            open={open}
-            onClose={() => setOpen(false)}
-            onSubmit={handleCreateInvoice}
-          />
-        </div>
-      </DashboardLayout>
-
-      <ToastContainer open={showSuccess} />
-    </>
+    <Routes>
+      <Route element={<DashboardLayout />}>
+        <Route path='/' element={<DashboardPage />} />
+        <Route path='/invoices' element={<InvoicesPage />} />
+        <Route path='*' element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;

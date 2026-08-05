@@ -2,14 +2,16 @@ import { useMemo, useState } from 'react';
 
 import type { Invoice } from '../../types/invoice';
 
+import EmptyState from './EmptyState';
 import TableRow from './TableRow';
 import TableToolbar from './TableToolbar';
 
 type Props = {
   invoices: Invoice[];
+  onCreateInvoice: () => void;
 };
 
-export default function InvoiceTable({ invoices }: Props) {
+export default function InvoiceTable({ invoices, onCreateInvoice }: Props) {
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('All statuses');
   const [plan, setPlan] = useState('All plans');
@@ -28,7 +30,10 @@ export default function InvoiceTable({ invoices }: Props) {
 
       return matchesSearch && matchesStatus && matchesPlan;
     });
-  }, [invoices, search, status, plan]); // ✅ Added invoices
+  }, [invoices, search, status, plan]);
+
+  const hasInvoices = invoices.length > 0;
+  const hasResults = filteredInvoices.length > 0;
 
   return (
     <section className='mt-8 overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm'>
@@ -73,16 +78,16 @@ export default function InvoiceTable({ invoices }: Props) {
           </thead>
 
           <tbody>
-            {filteredInvoices.length === 0 ? (
-              <tr>
-                <td colSpan={6} className='py-20 text-center text-slate-500'>
-                  No invoices found.
-                </td>
-              </tr>
-            ) : (
+            {filteredInvoices.length > 0 ? (
               filteredInvoices.map((invoice) => (
                 <TableRow key={invoice.id} invoice={invoice} />
               ))
+            ) : (
+              <tr>
+                <td colSpan={6} className='p-0'>
+                  <EmptyState onCreate={onCreateInvoice} />
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

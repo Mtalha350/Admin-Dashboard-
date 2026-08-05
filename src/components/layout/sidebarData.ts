@@ -12,19 +12,22 @@ export const workspaceMenu = [
   {
     title: 'Overview',
     icon: LayoutDashboard,
-    active: true,
+    path: '/',
   },
   {
     title: 'Invoices',
     icon: FileText,
+    path: '/invoices',
   },
   {
     title: 'Customers',
     icon: Users,
+    path: '/customers',
   },
   {
     title: 'Reports',
     icon: BarChart3,
+    path: '/reports',
   },
 ];
 
@@ -32,13 +35,16 @@ export const systemMenu = [
   {
     title: 'Tailwind vs MUI',
     icon: Layers,
+    path: '/tailwind-vs-mui',
   },
   {
     title: 'Settings',
     icon: Settings,
+    path: '/settings',
   },
   {
     title: 'Support',
     icon: LifeBuoy,
+    path: '/support',
   },
 ];
