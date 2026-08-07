@@ -1,5 +1,3 @@
-import type { TooltipProps } from 'recharts';
-
 type RevenueTooltipProps = {
   active?: boolean;
   payload?: {

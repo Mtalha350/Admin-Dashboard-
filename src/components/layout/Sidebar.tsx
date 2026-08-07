@@ -21,24 +21,7 @@ export default function Sidebar({ isOpen, onClose }: Props) {
 
       {/* Sidebar */}
       <aside
-        className={`
-          fixed
-          top-0
-          left-0
-          z-50
-          flex
-          h-screen
-          w-64
-          flex-col
-          bg-[#062B2B]
-          text-white
-          shadow-xl
-          transition-transform
-          duration-300
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-          lg:static
-          lg:translate-x-0
-        `}
+        className={`fixed top-0 left-0 z-50 flex h-screen w-64 flex-col bg-[#062B2B] text-white shadow-xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:static lg:translate-x-0`}
       >
         {/* Header */}
         <div className='flex items-center justify-between border-b border-white/10 p-6'>

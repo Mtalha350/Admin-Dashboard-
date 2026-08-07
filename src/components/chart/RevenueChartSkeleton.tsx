@@ -13,7 +13,7 @@ export default function RevenueChartSkeleton() {
         <Skeleton className='h-10 w-28 rounded-full' />
       </div>
 
-      <Skeleton className='mt-8 h-[330px] w-full rounded-2xl' />
+      <Skeleton className='mt-8 h-82.5 w-full rounded-2xl' />
     </section>
   );
 }

@@ -50,7 +50,7 @@ export default function TableToolbar({
         <div className='relative flex-1'>
           <Search
             size={18}
-            className='absolute left-5 top-[18px] -translate-y-1/2 text-[#5B6D6D]'
+            className='absolute left-5 top-4.5 -translate-y-1/2 text-[#5B6D6D]'
           />
 
           <input
@@ -67,7 +67,7 @@ export default function TableToolbar({
           <select
             value={status}
             onChange={(e) => onStatusChange(e.target.value)}
-            className='h-9 min-w-[220px] appearance-none rounded-xl border border-[#D5E1E1] bg-white px-5 pr-10 text-sm outline-none'
+            className='h-9 min-w-55 appearance-none rounded-xl border border-[#D5E1E1] bg-white px-5 pr-10 text-sm outline-none'
           >
             <option>All statuses</option>
             <option>Paid</option>
@@ -78,7 +78,7 @@ export default function TableToolbar({
 
           <ChevronDown
             size={18}
-            className='pointer-events-none absolute right-4 top-[20px] -translate-y-1/2 text-slate-500'
+            className='pointer-events-none absolute right-4 top-5 -translate-y-1/2 text-slate-500'
           />
         </div>
 
@@ -88,7 +88,7 @@ export default function TableToolbar({
           <select
             value={plan}
             onChange={(e) => onPlanChange(e.target.value)}
-            className='h-9 min-w-[220px] appearance-none rounded-xl border border-[#D5E1E1] bg-white px-5 pr-10 text-sm outline-none'
+            className='h-9 min-w-55 appearance-none rounded-xl border border-[#D5E1E1] bg-white px-5 pr-10 text-sm outline-none'
           >
             <option>All plans</option>
             <option>Starter</option>
@@ -98,7 +98,7 @@ export default function TableToolbar({
 
           <ChevronDown
             size={18}
-            className='pointer-events-none absolute right-4 top-[20px] -translate-y-1/2 text-slate-500'
+            className='pointer-events-none absolute right-4 top-5 -translate-y-1/2 text-slate-500'
           />
         </div>
       </div>

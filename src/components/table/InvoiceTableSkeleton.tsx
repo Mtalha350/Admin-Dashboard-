@@ -18,13 +18,9 @@ export default function InvoiceTableSkeleton() {
             className='flex items-center justify-between border-b py-5'
           >
             <Skeleton className='h-4 w-24' />
-
             <Skeleton className='h-4 w-52' />
-
             <Skeleton className='h-8 w-20 rounded-full' />
-
             <Skeleton className='h-4 w-20' />
-
             <Skeleton className='h-4 w-16' />
           </div>
         ))}

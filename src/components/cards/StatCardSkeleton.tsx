@@ -2,7 +2,7 @@ import Skeleton from '../common/Skeleton';
 
 export default function StatCardSkeleton() {
   return (
-    <div className='h-[160px] rounded-2xl border border-slate-200 bg-white p-6 shadow-sm'>
+    <div className='h-40 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm'>
       <div className='flex h-full justify-between'>
         <div className='flex flex-col justify-between'>
           <div>

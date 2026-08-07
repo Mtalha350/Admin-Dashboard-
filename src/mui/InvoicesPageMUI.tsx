@@ -55,9 +55,7 @@ export default function InvoicesPageMUI() {
     const updatedInvoices = [newInvoice, ...invoices];
 
     setInvoices(updatedInvoices);
-
     saveInvoices(updatedInvoices);
-
     setOpen(false);
   };
 

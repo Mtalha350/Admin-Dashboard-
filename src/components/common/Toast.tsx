@@ -7,7 +7,7 @@ type Props = {
 
 export default function Toast({ title, description }: Props) {
   return (
-    <div className='flex w-[380px] items-start gap-4 rounded-xl border border-emerald-200 bg-white p-3 shadow-xl'>
+    <div className='flex w-95 items-start gap-4 rounded-xl border border-emerald-200 bg-white p-3 shadow-xl'>
       <div>
         <CheckCircle2 size={20} className='text-emerald-600' />
       </div>

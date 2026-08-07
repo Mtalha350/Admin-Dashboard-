@@ -7,7 +7,7 @@ export default function NotFoundPage() {
     <div className='flex min-h-screen items-center justify-center px-4 py-8 sm:px-6 lg:px-8'>
       <div className='flex w-full max-w-4xl flex-col items-center text-center'>
         {/* Illustration */}
-        <div className='w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px] lg:max-w-[420px] xl:max-w-[500px]'>
+        <div className='w-full max-w-55 sm:max-w-70 md:max-w-85 lg:max-w-105 xl:max-w-125'>
           <NotFoundIcon />
         </div>
 

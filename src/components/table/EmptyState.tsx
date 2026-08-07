@@ -6,7 +6,7 @@ type Props = {
 
 export default function EmptyState({ onCreate }: Props) {
   return (
-    <div className='flex h-[300px] flex-col items-center justify-center px-4'>
+    <div className='flex h-75 flex-col items-center justify-center px-4'>
       <div className='flex h-15 w-15 items-center justify-center rounded-full bg-slate-100'>
         <FileText size={38} className='text-slate-400' />
       </div>

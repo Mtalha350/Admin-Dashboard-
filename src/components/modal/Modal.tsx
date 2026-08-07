@@ -2,11 +2,8 @@ import { X } from 'lucide-react';
 
 type Props = {
   open: boolean;
-
   title: string;
-
   onClose: () => void;
-
   children: React.ReactNode;
 };
 

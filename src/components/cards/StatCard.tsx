@@ -16,7 +16,7 @@ export default function StatCard({
   positive,
 }: Props) {
   return (
-    <div className='flex min-h-[130px] flex-col rounded-2xl border border-[#D5E1E1] bg-white p-4 shadow-sm'>
+    <div className='flex min-h-32.5 flex-col rounded-2xl border border-[#D5E1E1] bg-white p-4 shadow-sm'>
       <p className='text-[12px] uppercase tracking-[0.15em] text-[#5B6D6D]'>
         {title}
       </p>

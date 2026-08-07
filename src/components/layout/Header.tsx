@@ -25,7 +25,7 @@ export default function Header({ onMenuClick }: Props) {
           <input
             type='text'
             placeholder='Search invoices, customers...'
-            className='w-72 rounded-[10px] bg-[#ffffff] border border-[#D5E1E1] py-2.5 pl-10 pr-4 text-sm text-[#5B6D6D] outline-none transition placeholder:text-[#5B6D6D] focus:bg-white focus:ring-2 focus:ring-teal-600/20 lg:w-96'
+            className='w-72 rounded-[10px] bg-white border border-[#D5E1E1] py-2.5 pl-10 pr-4 text-sm text-[#5B6D6D] outline-none transition placeholder:text-[#5B6D6D] focus:bg-white focus:ring-2 focus:ring-teal-600/20 lg:w-96'
           />
         </div>
       </div>
