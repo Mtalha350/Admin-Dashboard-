@@ -32,9 +32,6 @@ export default function InvoiceTable({ invoices, onCreateInvoice }: Props) {
     });
   }, [invoices, search, status, plan]);
 
-  const hasInvoices = invoices.length > 0;
-  const hasResults = filteredInvoices.length > 0;
-
   return (
     <section className='mt-8 overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm'>
       <TableToolbar
@@ -44,53 +41,56 @@ export default function InvoiceTable({ invoices, onCreateInvoice }: Props) {
         onStatusChange={setStatus}
         plan={plan}
         onPlanChange={setPlan}
-        totalRecords={filteredInvoices.length}
+        totalRecords={invoices.length}
+        filteredRecords={filteredInvoices.length}
       />
 
-      <div className='h-[430px] overflow-y-auto'>
-        <table className='w-full table-fixed border-collapse'>
-          <thead className='sticky top-0 z-20 bg-white shadow-[0_1px_0_0_#E2E8F0]'>
-            <tr>
-              <th className='w-[14%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
-                Invoice
-              </th>
-
-              <th className='w-[33%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
-                Customer
-              </th>
-
-              <th className='w-[12%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
-                Plan
-              </th>
-
-              <th className='w-[18%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
-                Status
-              </th>
-
-              <th className='w-[13%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
-                Date
-              </th>
-
-              <th className='w-[10%] px-5 py-4 text-right text-sm font-medium text-[#5B6D6D]'>
-                Amount
-              </th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {filteredInvoices.length > 0 ? (
-              filteredInvoices.map((invoice) => (
-                <TableRow key={invoice.id} invoice={invoice} />
-              ))
-            ) : (
+      <div className='overflow-x-auto'>
+        <div className='min-w-[900px]'>
+          <table className='w-full table-fixed border-collapse'>
+            <thead className='sticky top-0 z-20 bg-white shadow-[0_1px_0_0_#E2E8F0]'>
               <tr>
-                <td colSpan={6} className='p-0'>
-                  <EmptyState onCreate={onCreateInvoice} />
-                </td>
+                <th className='w-[14%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                  Invoice
+                </th>
+
+                <th className='w-[33%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                  Customer
+                </th>
+
+                <th className='w-[12%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                  Plan
+                </th>
+
+                <th className='w-[18%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                  Status
+                </th>
+
+                <th className='w-[13%] px-5 py-4 text-left text-sm font-medium text-[#5B6D6D]'>
+                  Date
+                </th>
+
+                <th className='w-[10%] px-5 py-4 text-right text-sm font-medium text-[#5B6D6D]'>
+                  Amount
+                </th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {filteredInvoices.length > 0 ? (
+                filteredInvoices.map((invoice) => (
+                  <TableRow key={invoice.id} invoice={invoice} />
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6} className='p-0'>
+                    <EmptyState onCreate={onCreateInvoice} />
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

@@ -12,17 +12,15 @@ import InvoiceTableSkeleton from '../components/table/InvoiceTableSkeleton';
 import CreateInvoiceModal from '../components/modal/CreateInvoiceModal';
 import ToastContainer from '../components/common/ToastContainer';
 
-import { invoices as initialInvoices } from '../data/invoices';
-
 import type { Invoice } from '../types/invoice';
 import type { InvoiceFormValues } from '../schemas/invoiceSchema';
+import { getInvoices, saveInvoices } from '../utils/invoiceStorage';
 
 const DashboardPage = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
-
-  const [invoices, setInvoices] = useState<Invoice[]>(initialInvoices);
+  const [invoices, setInvoices] = useState<Invoice[]>(() => getInvoices());
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -47,10 +45,11 @@ const DashboardPage = () => {
       date: new Date().toISOString().slice(0, 10),
     };
 
-    setInvoices((prev) => [newInvoice, ...prev]);
+    const updatedInvoices = [newInvoice, ...invoices];
 
+    setInvoices(updatedInvoices);
+    saveInvoices(updatedInvoices);
     setOpen(false);
-
     setShowSuccess(true);
 
     setTimeout(() => {
@@ -82,15 +81,12 @@ const DashboardPage = () => {
         {loading ? (
           <>
             <StatsGridSkeleton />
-
             <RevenueChartSkeleton />
-
             <InvoiceTableSkeleton />
           </>
         ) : (
           <>
             <StatsGrid />
-
             <RevenueChart />
 
             <InvoiceTable

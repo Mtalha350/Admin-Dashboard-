@@ -27,7 +27,7 @@ export default function CreateInvoiceModal({ open, onClose, onSubmit }: Props) {
       email: '',
       plan: 'Starter',
       status: 'Pending',
-      amount: 0,
+      amount: undefined,
     },
   });
 
@@ -134,7 +134,9 @@ export default function CreateInvoiceModal({ open, onClose, onSubmit }: Props) {
 
             <input
               type='number'
-              {...register('amount')}
+              {...register('amount', {
+                valueAsNumber: true,
+              })}
               className='h-12 w-full rounded-xl border border-slate-200 px-4 outline-none focus:border-teal-600'
             />
 

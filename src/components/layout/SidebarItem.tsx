@@ -4,11 +4,17 @@ import type { LucideIcon } from 'lucide-react';
 
 type Props = {
   title: string;
+  subtitle?: string;
   icon: LucideIcon;
   path: string;
 };
 
-export default function SidebarItem({ title, icon: Icon, path }: Props) {
+export default function SidebarItem({
+  title,
+  subtitle,
+  icon: Icon,
+  path,
+}: Props) {
   return (
     <NavLink
       to={path}
@@ -23,7 +29,10 @@ export default function SidebarItem({ title, icon: Icon, path }: Props) {
     >
       <Icon size={17} strokeWidth={1.75} />
 
-      <span className='font-medium'>{title}</span>
+      <div className='flex flex-col'>
+        <span className='font-medium'>{title}</span>
+        <p className='text-xs text-slate-500'>{subtitle}</p>
+      </div>
     </NavLink>
   );
 }

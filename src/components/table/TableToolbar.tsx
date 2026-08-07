@@ -11,6 +11,7 @@ type Props = {
   onPlanChange: (value: string) => void;
 
   totalRecords: number;
+  filteredRecords: number;
 };
 
 export default function TableToolbar({
@@ -21,6 +22,7 @@ export default function TableToolbar({
   plan,
   onPlanChange,
   totalRecords,
+  filteredRecords,
 }: Props) {
   return (
     <div className='border-b border-slate-200 p-4'>
@@ -31,7 +33,7 @@ export default function TableToolbar({
           <h2 className='text-[20px] font-bold text-slate-900'>Invoices</h2>
 
           <p className='text-xs text-slate-500'>
-            {totalRecords} of {totalRecords} records
+            {filteredRecords} of {totalRecords} records
           </p>
         </div>
 

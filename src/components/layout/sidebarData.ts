@@ -16,6 +16,7 @@ export const workspaceMenu = [
   },
   {
     title: 'Invoices',
+    subtitle: 'Material UI',
     icon: FileText,
     path: '/invoices',
   },

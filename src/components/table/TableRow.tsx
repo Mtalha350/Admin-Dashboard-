@@ -31,7 +31,7 @@ export default function TableRow({ invoice }: Props) {
       </td>
 
       <td className='px-6 py-2 text-right text-sm font-semibold text-slate-900 whitespace-nowrap'>
-        ${invoice.amount.toLocaleString()}
+        ${(invoice.amount ?? 0).toLocaleString()}
       </td>
     </tr>
   );
