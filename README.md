@@ -1,75 +1,137 @@
-# React + TypeScript + Vite
+# Invoice Hub Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive **Invoice Management Dashboard** built using **React, TypeScript, Tailwind CSS, and Material UI (MUI)**. This project demonstrates modern frontend development practices including reusable components, responsive layouts, form validation, state management, local storage persistence, and UI implementation using both Tailwind CSS and Material UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Project Overview
 
-## React Compiler
+Invoice Hub Dashboard enables users to manage invoices through a clean and responsive interface. Users can create invoices, search and filter records, and view dashboard analytics. The project also includes the same invoice module implemented using **Material UI** to compare it with a **Tailwind CSS** implementation.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project was developed as part of the **Frontend Engineering Internship – Week 3 Assignment**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Responsive Admin Dashboard
+- Dashboard KPI Cards
+- Revenue Chart
+- Invoice Management
+- Create New Invoice
+- Search Invoices
+- Filter by Status
+- Filter by Plan
+- Form Validation using React Hook Form & Zod
+- Loading Skeletons
+- Empty State
+- Success Toast Notification
+- Responsive Table with Horizontal Scroll
+- Sticky Table Header
+- Custom 404 Page
+- Local Storage Persistence
+- Tailwind CSS Implementation
+- Material UI (MUI) Implementation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🎨 Tailwind CSS vs Material UI
 
+### Tailwind CSS
+
+- Utility-first CSS framework
+- Fully customizable UI
+- Lightweight styling
+- Faster custom interface development
+
+### Material UI (MUI)
+
+- Pre-built UI components
+- Built-in theming support
+- Consistent Material Design
+- Faster component-based development
+
+---
+
+## 🛠️ Technologies Used
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Material UI (MUI)
+- React Hook Form
+- Zod
+- React Router DOM
+- Recharts
+- Lucide React
+- Local Storage
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+│
+├── assets/
+├── components/
+│   ├── cards/
+│   ├── chart/
+│   ├── common/
+│   ├── modal/
+│   ├── mui/
+│   └── table/
+│
+├── data/
+├── layouts/
+├── pages/
+├── routes/
+├── schemas/
+├── types/
+├── utils/
+│
+├── App.tsx
+├── main.tsx
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💻 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Clone the repository
 
+```bash
+git clone https://github.com/Mtalha350/Admin-Dashboard.git
 ```
+
+### Navigate to the project
+
+```bash
+cd Admin-Dashboard
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the application
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 📄 Acknowledgement
+
+This project was developed for educational purposes as part of the **Frontend Engineering Internship – Week 3 Assignment** at **Optimus Fox**, under the guidance of **Maheen Nasir**.
